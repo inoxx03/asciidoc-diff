@@ -1,3 +1,10 @@
+// TODO:
+// Parse absolute path form input arguments
+// use absolute path as fallback for outputDir
+// use cwd as fallback if no path specified
+
+//TODO: Gracefully handle errors if one or both input file are not specified.
+
 const HtmlDiff = require('htmldiff-js').default;
 const fs = require('fs');
 const { allowedNodeEnvironmentFlags } = require('process');
@@ -18,6 +25,8 @@ arg[0] = String(arg[0]);
 arg[1] = String(arg[1]);
 // Name of the output file
 arg[2] = String(arg[2]);
+// Custom output file path
+arg[3] = String(arg[3]);
 
 // append workdir path to input file 1
 var filepathNew = path.join(workdir, arg[0]);
@@ -28,6 +37,10 @@ console.log('Path to new HTML file: ', filepathNew);
 var filepathOld = path.join(workdir, arg[1]);
 // DEBUG: print filepath
 console.log('Path to old HTML file: ', filepathOld);
+
+//TODO: use parsed input file dirpath as fallback if no output file path is specified
+//TODO: use cwd as fallback if no output or input path is specified
+//TODO: use a fallback output file name, if none is provided
 
 //specify output file name
 //TODO: enable CLI arg for specifying custom output directory path

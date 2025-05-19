@@ -8,19 +8,31 @@ path = require('path');
 const arg = process.argv.slice(2);
 const workdir = process.cwd();
 
-// Printing current directory
+// DEBUG: Print current working directory
 console.log("Current working directory: ",
     process.cwd());
 
+// Name of the new HTML input file
 arg[0] = String(arg[0]);
+// Name of the old HTML input file
 arg[1] = String(arg[1]);
+// Name of the output file
 arg[2] = String(arg[2]);
 
+// append workdir path to input file 1
 var filepathNew = path.join(workdir, arg[0]);
+// DEBUG: print filepath
 console.log('Path to new HTML file: ', filepathNew);
 
+// append workdir path to input file 2
 var filepathOld = path.join(workdir, arg[1]);
+// DEBUG: print filepath
 console.log('Path to old HTML file: ', filepathOld);
+
+//specify output file name
+//TODO: enable CLI arg for specifying custom output directory path
+var outputPath = path.join(workdir, arg[2]);
+console.log('Path to output file:', outputPath);
 
 var newHtml = fs.readFileSync(filepathNew, 'utf8');
 var oldHtml = fs.readFileSync(filepathOld, 'utf8');

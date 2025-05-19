@@ -25,28 +25,11 @@ console.log('Path to old HTML file: ', filepathOld);
 var newHtml = fs.readFileSync(filepathNew, 'utf8');
 var oldHtml = fs.readFileSync(filepathOld, 'utf8');
 
-//var newHtml = fs.readFileSync(arg[0], 'utf8');
-//var oldHtml = fs.readFileSync(arg[1], 'utf8');
-
-
-//arguments.forEach((value, index) => {
-//  console.log(index, value);
-//});
-
-// print process.argv
-//argv.forEach((val, index) => {
-//  console.log(`${index}: ${val}`);
-//});
-
-//pass these files in as CLI args
-//var newHtml = fs.readFileSync('bv2-cr3.html', 'utf8');
-//var oldHtml = fs.readFileSync('bv2-cr1.html', 'utf8');
-
-console.log("Starting to compare...");
+console.log("Comparing files and generating diff...");
 
 var diffHtml = HtmlDiff.execute(oldHtml, newHtml);
 
-console.log("Comparison done...");
+console.log("Done!");
 
 // adding additional style to make changes highlighted in color (might still be incomplete,
 // TODO: Append the change bar style to the inline CSS instead of replacing the entire CSS block.
@@ -69,7 +52,7 @@ ins.mod {
 
 fs.writeFile(arg[2], diffHtml, function (err) {
     if (err) throw err;
-    console.log('Saved diff as', arg[2]);
+    console.log('HTML diff generated in', path.join(workdir, arg[2]));
 });
 
 

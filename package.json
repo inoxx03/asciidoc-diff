@@ -1,8 +1,15 @@
 {
-  "scripts": {
-    "diff": "node diff.js"
-  },
-  "dependencies": {
-    "htmldiff-js": "^1.0.5"
-  }
+"name": "asciidoc-diff",
+"version": "1.0.0",
+"description": "compare HTML documents",
+"bin": {
+"asciidoc-diff": "./diff.js"
+},
+"type": "module",
+"scripts": {
+"diff": "node diff.js"
+},
+"dependencies": {
+"htmldiff-js": "^1.0.5"
+}
 }

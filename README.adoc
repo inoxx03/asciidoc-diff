@@ -5,19 +5,35 @@ This uses two old versions of the Bean Validation specifictation to show some ex
 == Prerequisites
 
 You'll need https://nodejs.org/[node/npm] installed.
-To view the result use a web browser like for example Chrome.
+To view the result use a web browser, for example, Firefox or Chromium.
 
 == How to run
 
+//----
+//npm install
+//npm run diff
+//----
+. Clone this repository.
+. Navigate to the directory that contains the cloned repository files (that is, the directory where `package.json` is located).
+. Use `npm` to install the package:
++
 ----
 npm install
-npm run diff
 ----
 
-This will create `bv2-diff.html` in your local folder.
+. Generate a diff of 2 HTML files, and provide a name for the generated output diff file:
+----
+node diff.js <old-html> <new-html> <diffed_output_html_file>
+----
++
+This creates the output file in your current working directory.
++
+The script accepts relative paths and file names in the arguments for both input files, and the output file.
+The file name and the file extension must be included.
+Relative paths are resolved relative to the current working directory (if only the file is specified, the script assumes that it is located in the current working directory).
 
-== What to expect
+//== What to expect
 
-You'll receive a HTML file with hightlighted changes similar to the following screenshot.
+//You'll receive a HTML file with hightlighted changes similar to the following screenshot.
 
-image::bv-screenshot.png[]
+//image::bv-screenshot.png[]

@@ -20,6 +20,12 @@ To view the result use a web browser, for example, Firefox or Chromium.
 ----
 npm install
 ----
++
+or
++
+----
+npm -g install
+----
 
 . Generate a diff of 2 HTML files, and provide a name for the generated output diff file:
 ----

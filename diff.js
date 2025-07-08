@@ -24,7 +24,7 @@
 /*
     Lower priority fixes:
     TODO: Print usage information to STDOUT and exit when no input or output file arguments are specified.
-    TODO: Add a means of scpefying a custom path for the input and output files.
+    TODO: Add a means of specifying a custom path for the input and output files.
     TODO: Gracefully handle errors if one or both input file are not specified.
     TODO: Use a default output file name, if none is provided.
     TODO: Maybe also use the default as fallback if specified output file already exists.
@@ -67,39 +67,43 @@ var filepathOld = path.join(workdir, arg[1]);
 console.log('Path to old HTML file: ', filepathOld);
 
 
-// specify output file name
+// Read specified output file name
 var outputPath = path.join(workdir, arg[2]);
 console.log('Path to output file:', outputPath);
 
+// Read input files
 var newHtml = fs.readFileSync(filepathNew, 'utf8');
 var oldHtml = fs.readFileSync(filepathOld, 'utf8');
 
-// DEBUG: print a message for the log
+// DEBUG: Print a message for the log before generating the diff
 console.log("Comparing files and generating diff...");
 
 // Generate the diff
 var diffHtml = HtmlDiff.execute(oldHtml, newHtml);
 
+// DEBUG: Print a message when the diff is generated
 console.log("Done!");
 
 /*
     Append CSS classes used for highlighting additions, deletions, 
-    and for highlighting modified blocks, to the inline CCS from 
-    the input HTML files.
+    and for highlighting blocks that contain formatting changes
+    to the inline CCS from the input HTML files.
     Not tested with 2 input files with different inline CSS, yet. 
 */
 diffHtml = diffHtml.replace("<head>",`<head><style>
+/* deletions */
 del {
     text-decoration: none;
     background-color: #fdb8c0;
 }
 
+/* additions */
 ins {
     text-decoration: none;
     background-color: #acf2bd;
 }
 
-/* just formatting changes */
+/* formatting chnages only */
 ins.mod {
     background-color: #fafaa9;
 }

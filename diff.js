@@ -1,48 +1,49 @@
 #!/usr/bin/env node
 
-// Import Node.js standard modules using ES module syntax
+// Import Node.js standard modules
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import htmldiff from 'htmldiff-js';
-//import HtmlDiff from 'htmldiff-js';
 
 // Required for __dirname replacement in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Get CLI arguments (after the first two: node + script path)
+// Process CLI arguments  For input and output files
+// Trim the first 2 default positional arguments that provide `node` and script path
 const [fileNew, fileOld, fileOut] = process.argv.slice(2);
 
-// Validate input
+//Print usage hint and exit if any of the input and output arguments are not provided
 if (!fileNew || !fileOld || !fileOut) {
 console.error("Usage: asciidoc-diff <new.html> <old.html> <output.html>");
 process.exit(1);
 }
 
-// Resolve absolute paths
+// Resolve absolute paths to input and output files
+// Required so that the script can be used on the PATH
 const filepathNew = path.resolve(process.cwd(), fileNew);
 const filepathOld = path.resolve(process.cwd(), fileOld);
 const outputPath = path.resolve(process.cwd(), fileOut);
 
-// DEBUG
+// DEBUG: print current working directory path and resolve input and output file paths when executing this script.
 console.log("Working directory:", process.cwd());
 console.log("New file path:", filepathNew);
 console.log("Old file path:", filepathOld);
 console.log("Output file path:", outputPath);
 
-// Read HTML files
+// Read content from input HTML files
 const newHtml = fs.readFileSync(filepathNew, 'utf8');
 const oldHtml = fs.readFileSync(filepathOld, 'utf8');
 
-// Generate diff
+//DEBUG: Print a log message before generating the diff
 console.log("Comparing files and generating diff...");
-//let diffHtml = HtmlDiff.execute(oldHtml, newHtml);
-//let diffHtml = HtmlDiff(oldHtml, newHtml);
+// Generate diff by calling htmldiff on the input files.
 let diffHtml = htmldiff.default.execute(oldHtml, newHtml);
+//DEBUG: Print a log message when the diff is generated
 console.log("Done!");
 
-// Inject custom styling for insertions and deletions
+// Inject custom styling for insertions, deletions, and formatting modification.
 diffHtml = diffHtml.replace("<head>", `<head><style>
 del {
 text-decoration: none;
@@ -57,6 +58,6 @@ background-color: #fafaa9;
 }
 </style>`);
 
-// Write to output
+// Write the output HTML file to the resolved output path.
 fs.writeFileSync(outputPath, diffHtml, 'utf8');
 console.log(`HTML diff written to: ${outputPath}`);

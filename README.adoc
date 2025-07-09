@@ -1,32 +1,52 @@
-= Showing Differences in HTML AsciiDoc output
+= asciidoc-diff: A diff generator for AsciiDoctor HTML output
 
-This uses two old versions of the Bean Validation specifictation to show some example HTML diff output.
+Forked from Alexander Schwartz's link:https://github.com/ahus1/asciidoc-diff[asciidoctor-diff^].
+
+This module compares changes across 2 versions of an HTML document generated with link:https://asciidoctor.org[AsciiDoctor^], and generates a third HTML file with highlighted additions, deletions, and formatting changes.
+
+The module works for diffing any 2 valid HTML files, but it was only tested for diffing AsciiDoctor HTML output.
+Your results may vary if you compare HTML file created by different tools, but you might likely get a decent diff, anyway.
 
 == Prerequisites
 
-You'll need https://nodejs.org/[node/npm] installed.
-To view the result use a web browser, for example, Firefox or Chromium.
+//TODO: what versions of NPM and Node.js?
+* https://npmjs.com/[npm] installed
+* https://nodejs.org/[node.js] installed
+* A web browser, for example, Firefox or Chromium, for viewing the output.
 
-== How to run
+== Dependencies
 
-//----
-//npm install
-//npm run diff
-//----
+* Reguires link:https://www.npmjs.com/package/htmldiff-js[htmldiff-js^] v. 1.0.5 or later.
+**  Implements the diffing algorithm used by this script.
+**  See the link:https://github.com/dfoverdx/htmldiff-js[htmldiff-js] project on Github.
+
+== Installing `asciidoc-diff`
+
 . Clone this repository.
+
 . Navigate to the directory that contains the cloned repository files (that is, the directory where `package.json` is located).
 . Use `npm` to install the package:
 +
+[source,shell]
 ----
-npm install
-----
-
-. Generate a diff of 2 HTML files, and provide a name for the generated output diff file:
-----
-node diff.js <old-html> <new-html> <diffed_output_html_file>
+$ npm install
 ----
 +
-This creates the output file in your current working directory.
+Alternatively, install it globally to make it available on your PATH:
++
+[source,shell]
+----
+$ npm -g install
+----
+
+== Generating a diff
+
+. Generate a diff of 2 HTML files, and save it at the specified path as an output HTML file with highlighted changes.
++
+[source,shell]
+----
+node diff.js <path/to/old_html_file> <path/to/new_html_file> <path/to/diffed_output_html_file>
+----
 +
 The script accepts relative paths and file names in the arguments for both input files, and the output file.
 The file name and the file extension must be included.

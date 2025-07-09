@@ -20,7 +20,7 @@ The script's underlying diffing algorithm implementation is provided by the link
 
 == Dependencies
 
-* Reguires link:https://www.npmjs.com/package/htmldiff-js[htmldiff-js^] v. 1.0.5 or later.
+* Requires link:https://www.npmjs.com/package/htmldiff-js[htmldiff-js^] v. 1.0.5 or later.
 **  Implements the diffing algorithm used by this script.
 **  See the link:https://github.com/dfoverdx/htmldiff-js[htmldiff-js] project on Github.
 

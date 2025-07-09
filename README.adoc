@@ -1,11 +1,15 @@
 = asciidoc-diff: A diff generator for AsciiDoctor HTML output
 
-Forked from Alexander Schwartz's link:https://github.com/ahus1/asciidoc-diff[asciidoctor-diff^].
+Forked from Alexander Schwartz's link:https://github.com/ahus1/asciidoc-diff[asciidoc-diff^] project.
+
+== Overview
 
 This module compares changes across 2 versions of an HTML document generated with link:https://asciidoctor.org[AsciiDoctor^], and generates a third HTML file with highlighted additions, deletions, and formatting changes.
 
 The module works for diffing any 2 valid HTML files, but it was only tested for diffing AsciiDoctor HTML output.
 Your results may vary if you compare HTML file created by different tools, but you might likely get a decent diff, anyway.
+
+The script's underlying diffing algorithm implementation is provided by the link:https://github.com/dfoverdx/htmldiff-js[htmldiff-js] library by dfoverdx.
 
 == Prerequisites
 

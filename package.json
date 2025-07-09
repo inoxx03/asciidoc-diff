@@ -1,7 +1,7 @@
 {
 "name": "asciidoc-diff",
 "version": "1.0.0",
-"description": "compare HTML documents",
+"description": "This module compares changes across 2 versions of an HTML document generated with AsciiDoctor, and generates a third HTML file with highlighted additions, deletions, and formatting changes.",
 "bin": {
 "asciidoc-diff": "./diff.js"
 },

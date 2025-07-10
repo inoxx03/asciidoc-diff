@@ -1,15 +1,1 @@
-{
-"name": "asciidoc-diff",
-"version": "1.0.0",
-"description": "This module compares changes across 2 versions of an HTML document generated with AsciiDoctor, and generates a third HTML file with highlighted additions, deletions, and formatting changes.",
-"bin": {
-"asciidoc-diff": "./diff.js"
-},
-"type": "module",
-"scripts": {
-"diff": "node diff.js"
-},
-"dependencies": {
-"htmldiff-js": "^1.0.5"
-}
-}
+{"name":"asciidoc-diff","version":"1.0.0","description":"This module compares changes across 2 versions of an HTML document generated with AsciiDoctor, and generates a third HTML file with highlighted additions, deletions, and formatting changes.","bin":{"asciidoc-diff":"./diff.js"},"type":"module","scripts":{"diff":"node diff.js"},"dependencies":{"htmldiff-js":"^1.0.5"},"devDependencies":{"@eslint/js":"^9.30.1","eslint":"^9.30.1","globals":"^16.3.0"}}

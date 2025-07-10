@@ -9,7 +9,7 @@ This module compares changes across 2 versions of an HTML document generated wit
 The module works for diffing any 2 valid HTML files, but it was only tested for diffing AsciiDoctor HTML output.
 Your results may vary if you compare HTML file created by different tools, but you might likely get a decent diff, anyway.
 
-The script's underlying diffing algorithm implementation is provided by the link:https://github.com/dfoverdx/htmldiff-js[htmldiff-js] library by dfoverdx.
+The script's underlying diffing algorithm implementation is provided by the link:https://github.com/dfoverdx/htmldiff-js[htmldiff-js] library by Beth Hitch (link:https://github.com/dfoverdx[dfoverdx]).
 
 == Prerequisites
 
@@ -45,7 +45,7 @@ $ npm -g install
 
 == Generating a diff
 
-. Generate a diff of 2 HTML files, and save it at the specified path as an output HTML file with highlighted changes.
+. Generate a diff of 2 HTML files, and save it at the specified path as an output HTML file with highlighted changes:
 +
 [source,shell]
 ----

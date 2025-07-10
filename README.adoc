@@ -47,11 +47,13 @@ $ npm -g install
 
 . Generate a diff of 2 HTML files, and save it at the specified path as an output HTML file with highlighted changes.
 +
-[source,shell]
+[source,shell,subs="quotes"]
 ----
 node diff.js <path/to/old_html_file> <path/to/new_html_file> <path/to/diffed_output_html_file>
 ----
-+
+
+=== Input paths
+
 The script accepts relative paths and file names in the arguments for both input files, and the output file.
 The file name and the file extension must be included.
 Relative paths are resolved relative to the current working directory (if only the file is specified, the script assumes that it is located in the current working directory).

@@ -47,7 +47,7 @@ $ npm -g install
 
 . Generate a diff of 2 HTML files, and save it at the specified path as an output HTML file with highlighted changes.
 +
-[source,shell,subs="quotes"]
+[source,shell]
 ----
 node diff.js <path/to/old_html_file> <path/to/new_html_file> <path/to/diffed_output_html_file>
 ----

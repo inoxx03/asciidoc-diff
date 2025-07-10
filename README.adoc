@@ -49,7 +49,7 @@ $ npm -g install
 +
 [source,shell]
 ----
-node diff.js <path/to/old_html_file> <path/to/new_html_file> <path/to/diffed_output_html_file>
+node diff.js <path/to/old_html_file.html> <path/to/new_html_file.html> <path/to/diffed_output_html_file.html>
 ----
 
 === Input paths

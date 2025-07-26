@@ -2,6 +2,10 @@
 
 Forked from Alexander Schwartz's link:https://github.com/ahus1/asciidoc-diff[asciidoc-diff^] project.
 
+== CI/CD Status
+
+image:https://github.com/inoxx03/asciidoc-diff/actions/workflows/eslint.yml/badge.svg[ESLint, link=https://github.com/inoxx03/asciidoc-diff/actions/workflows/eslint.yml]
+
 == Overview
 
 This module compares changes across 2 versions of an HTML document generated with link:https://asciidoctor.org[AsciiDoctor^], and generates a third HTML file with highlighted additions, deletions, and formatting changes.

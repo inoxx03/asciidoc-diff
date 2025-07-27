@@ -51,7 +51,7 @@ jobs:
         with:
           name: eslint-results
           path: eslint-results.sarif
-          if-no-file-found: error
+          if-no-files-found: error
           include-hidden-files: true
 
       - name: Upload analysis results to GitHub

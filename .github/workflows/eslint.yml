@@ -44,7 +44,7 @@ jobs:
             --ext .js,.jsx,.ts,.tsx \
             --format @microsoft/eslint-formatter-sarif \
             --output-file eslint-results.sarif
-        continue-on-error: true
+        continue-on-error: true # TODO: this should be set to 'false' on master (to fail immediately on error and make the status badge useful), but set to 'true' on PRs to allow artifact uploads and fixing. 
 
       - name: Upload SARIF as artifact
         uses: actions/upload-artifact@v4

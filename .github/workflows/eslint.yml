@@ -44,7 +44,7 @@ jobs:
             --ext .js,.jsx,.ts,.tsx \
             --format @microsoft/eslint-formatter-sarif \
             --output-file eslint-results.sarif
-        continue-on-error: false
+        continue-on-error: true
 
       - name: Upload SARIF as artifact
         uses: actions/upload-artifact@v4

@@ -35,7 +35,8 @@ jobs:
           npm install eslint@9.30.1
           npm install @microsoft/eslint-formatter-sarif@3.1.0
 
-      - name: Run ESLint
+      - name: Run ESLint (PR branch)
+        if: github.event_name == 'pull_request'
         env:
           SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
         run: |
@@ -45,6 +46,18 @@ jobs:
             --format @microsoft/eslint-formatter-sarif \
             --output-file eslint-results.sarif
         continue-on-error: true
+
+      - name: Run ESLint (master)
+        if: github.ref == 'refs/heads/master'
+        env:
+          SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
+        run: |
+          npx eslint . \
+            --config eslint.config.mjs \
+            --ext .js,.jsx,.ts,.tsx \
+            --format @microsoft/eslint-formatter-sarif \
+            --output-file eslint-results.sarif
+        continue-on-error: false
 
       - name: Upload SARIF as artifact
         uses: actions/upload-artifact@v4

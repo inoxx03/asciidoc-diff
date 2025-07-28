@@ -3,14 +3,12 @@
 // Import Node.js standard modules
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import htmldiff from 'htmldiff-js';
 
 // Required for __dirname replacement in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const process = void 0;
 
-// Process CLI arguments  For input and output files
+// Process CLI arguments for input and output files
 // Trim the first 2 default positional arguments that provide `node` and script path
 const [fileNew, fileOld, fileOut] = process.argv.slice(2);
 

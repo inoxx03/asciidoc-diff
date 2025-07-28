@@ -3,7 +3,6 @@
 // Import Node.js standard modules
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import htmldiff from 'htmldiff-js';
 
 // Required for __dirname replacement in ES modules

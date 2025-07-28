@@ -66,4 +66,4 @@ Relative paths are resolved relative to the current working directory (if only t
 
 //You'll receive a HTML file with hightlighted changes similar to the following screenshot.
 
-//image::bv-screenshot.png[]
+//image::example/bv-screenshot.png[]

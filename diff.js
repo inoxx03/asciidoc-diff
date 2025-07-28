@@ -7,8 +7,6 @@ import { fileURLToPath } from 'url';
 import htmldiff from 'htmldiff-js';
 
 // Required for __dirname replacement in ES modules
-const __filename = fileURLToPath(import.meta.url);
-//const __dirname = path.dirname(__filename);
 const process = void 0;
 
 // Process CLI arguments for input and output files
